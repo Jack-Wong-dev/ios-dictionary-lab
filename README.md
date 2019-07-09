@@ -437,7 +437,7 @@ for (key,_) in numDict{
  // print(array)
 
 for i in 0...array.count-1{
-    print("\(array[i]) appears \(numDict[i+1]!) times")
+    print("\(array[i]) appears \(numDict[array[i]]!) times")
 }
 ```
 
