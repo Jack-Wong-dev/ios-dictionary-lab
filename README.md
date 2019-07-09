@@ -21,9 +21,9 @@ citiesDict["France"] = "Paris"
 citiesDict["United States"] = "Washington D.C"
 
 //1C
-citiesDict["Tokyo"] = "東京"
-citiesDict["Beijing"] = "北京"
-citiesDict["Paris"] = "パリ"
+citiesDict["Japan"] = "東京"
+citiesDict["China"] = "北京"
+citiesDict["France"] = "パリ"
 ```
 
 ## Question 2
@@ -47,7 +47,7 @@ citiesDict["Paris"] = "パリ"
 var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
 
 if let three = someDict["Three"], let five = someDict["Five"]{
-print(three+five) //prints 34
+    print(three+five) //prints 34
 } 
 
 //2.2
@@ -58,7 +58,7 @@ someDict["Seven"] = 70
 var product = 1
 
 for (_,value) in someDict{
-product *= value
+    product *= value
 }
 
 someDict["productUpToSeven"] = product
@@ -69,11 +69,11 @@ someDict["productUpToSeven"] = product
 var sum = 0
 
 for (key,value) in someDict{
-if key == "Seven" || key == "productUpToSeven"{
-continue
-}else{
-sum += value
-}
+    if key == "Seven" || key == "productUpToSeven"{
+        continue
+    }else{
+        sum += value
+    }
 }
 print(sum)
 
@@ -85,14 +85,14 @@ print(someDict)
 
 //2.6
 for (key, value) in someDict{
-someDict[key] = value+2
+    someDict[key] = value+2
 }
 print(someDict)
 
 //2.6 another way
 for (key, var value) in someDict{
-value += 2
-someDict[key] = value
+    value += 2
+    someDict[key] = value
 }
 print(someDict)
 ```
@@ -157,8 +157,7 @@ var code = [
 
 var message = "hello world"
 ```
-```
-swift
+```swift
 //Q4
 var code = [
 "a" : "b",
@@ -199,7 +198,7 @@ for c in message{
         messageOutput.append(" ")
     }
     if let encodeC = code[String(c)]{
-    messageOutput.append(encodeC)
+        messageOutput.append(encodeC)
     }
 }; print(messageOutput)
 
@@ -212,10 +211,10 @@ for char in encodedMessage{
         decodedMessage.append(" ")
     }
     for(key, value) in code{
-    if String(char) == value{
-    decodedMessage.append(key)
+        if String(char) == value{
+            decodedMessage.append(key)
+        }
     }
-}
 }; print(decodedMessage)
 ```
 
@@ -283,9 +282,9 @@ var people: [[String:String]] = [
 var firstNames: [String] = []
 
 for person in people{
-if let fName = person["firstName"]{
-firstNames.append(fName)
-}
+    if let fName = person["firstName"]{
+        firstNames.append(fName)
+    }
 }
 print(firstNames) //["Calvin", "Garry", "Leah", "Sonja", "Noel"]
 
@@ -294,9 +293,9 @@ var fullNames: [String] = []
 
 for person in people{
 
-if let firstName = person["firstName"], let lastName = person["lastName"]{
-fullNames.append("\(firstName) \(lastName)")
-}
+    if let firstName = person["firstName"], let lastName = person["lastName"]{
+        fullNames.append("\(firstName) \(lastName)")
+    }
 }; print(fullNames)
 //["Calvin Newton", "Garry Mckenzie", "Leah Rivera", "Sonja Moreno", "Noel Bowen"]
 ```
@@ -374,17 +373,17 @@ var lastName = ""
 
 for person in peopleWithScores{
 
-if let score = person["score"]{
-if let scoreInt: Int = Int(score){
-if scoreInt > bestScore{
-bestScore = scoreInt
-if let fName = person["firstName"], let lname = person["lastName"]{
-firstName = fName
-lastName = lname
-}
-}
-}
-}
+    if let score = person["score"]{
+        if let scoreInt: Int = Int(score){
+            if scoreInt > bestScore{
+            bestScore = scoreInt
+                if let fName = person["firstName"], let lname = person["lastName"]{
+                    firstName = fName
+                    lastName = lname
+                }           
+            }
+        }
+    }
 }
 print("\(firstName) \(lastName) has the best score: \(bestScore)")
 
@@ -392,10 +391,10 @@ print("\(firstName) \(lastName) has the best score: \(bestScore)")
 
 for person in peopleWithScores{
 
-if let firstName = person["firstName"], let lastName = person["lastName"], let score = person["score"]{
+    if let firstName = person["firstName"], let lastName = person["lastName"], let score = person["score"]{
 
-print("\(firstName) \(lastName) - \(score)")
-}
+        print("\(firstName) \(lastName) - \(score)")
+    }
 
 }
 
@@ -458,15 +457,14 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 for char in charArray{
 
-if alphabet.contains(char){
+    if alphabet.contains(char){
 
-if charDict.keys.contains(char){
-    charDict.updateValue(charDict[char]! + 1, forKey: char)
-}
-else{
-    charDict[char] = 1
-}
-}
+        if charDict.keys.contains(char){
+            charDict.updateValue(charDict[char]! + 1, forKey: char)
+        }else{
+        charDict[char] = 1
+        }   
+    }
 }
 
 print(charDict)
@@ -494,7 +492,7 @@ Write code that creates a dictionary where the keys are Ints between 0 and 20 in
 var dict: [Int:Int] = [:]
 
 for i in 0...20{
-dict[i] = (i*i*i)
+    dict[i] = (i*i*i)
 }
 
 print(dict)
@@ -516,11 +514,11 @@ let statePop = ["Alabama": 4.8, "Alaska": 0.7, "Arizona": 6.7, "Arkansas": 3.0]
 let testStates = ["California","Arizona", "Alabama", "New Mexico"]
 
 for state in testStates{
-if statePop.keys.contains(state){
-print("\(state) exists in statePop")
-}else{
-print("\(state) doesn't exist in statePop")
-}
+    if statePop.keys.contains(state){
+        print("\(state) exists in statePop")
+    }else{
+    print("\(state) doesn't exist in statePop")
+    }
 }
 
 ```
@@ -560,16 +558,16 @@ var mostMoney: Double = 0.0
 var person = String()
 
 for (key,value) in deposits{
-var total: Double = 0.0
+    var total: Double = 0.0
 
-for i in value{
-total += i
-}
+    for i in value{
+        total += i
+    }
 
-if total > mostMoney{
-mostMoney = total
-person = key
-}
+    if total > mostMoney{
+        mostMoney = total
+        person = key
+    }
 }; print("\(person) has the most money: \(mostMoney)")
 
 //11b
@@ -578,15 +576,15 @@ var stolenCents: [Double] = []
 for (_,value) in deposits{
 
 for i in value{
-let difference = i - floor(i)
-stolenCents.append(difference)
-}
+    let difference = i - floor(i)
+        stolenCents.append(difference)
+    }
 }
 //print(stolenCents)
 var totalCentsStolen: Double = 0.0
 
 for cent in stolenCents{
-totalCentsStolen += cent
+    totalCentsStolen += cent
 }
 print(stolenCents)
 
@@ -611,15 +609,15 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 for char in charArray{
 
-if alphabet.contains(char){
+    if alphabet.contains(char){
 
-if charDict.keys.contains(char){
-charDict.updateValue(charDict[char]! + 1, forKey: char)
-}
-else{
-charDict[char] = 1
-}
-}
+        if charDict.keys.contains(char){
+            charDict.updateValue(charDict[char]! + 1, forKey: char)
+        }
+        else{
+            charDict[char] = 1
+        }
+    }
 }
 
 print(charDict)
@@ -630,12 +628,12 @@ var letter = String()
 var secondLetter = String()
 for (key, value) in charDict{
 
-if value > frequency{
-frequency2 = frequency
-frequency = value
-secondLetter = letter
-letter = String(key)
-}
+    if value > frequency{
+        frequency2 = frequency
+        frequency = value
+        secondLetter = letter
+        letter = String(key)
+    }
 }
 print("Letter '\(letter)' occurs the most: \(frequency) times")
 print("Letter '\(secondLetter)' occurs the second most: \(frequency2) times")
@@ -669,17 +667,13 @@ var arrAll: [Int] = []
 var numDict: [Int:Int] = [:]
 
 func addition(array: [Int]) -> (){
-
-for i in array{
-
-if numDict.keys.contains(i){
-numDict.updateValue(numDict[i]! + 1, forKey: i)
-}else{
-numDict[i] = 1
-}
-
-}
-
+    for i in array{
+        if numDict.keys.contains(i){
+            numDict.updateValue(numDict[i]! + 1, forKey: i)
+        }else{
+            numDict[i] = 1
+        }
+    }
 }
 addition(array: arr1)
 addition(array: arr2)
@@ -689,7 +683,7 @@ addition(array: arr4)
 //print(numDict)
 
 for (key,_) in numDict{
-arrAll.append(key)
+    arrAll.append(key)
 }
 //print(arrAll)
 
@@ -698,20 +692,18 @@ arrAll.append(key)
 var newArray: [Int] = []
 
 func uniqueForAll4Arrays(array: [Int]){
-for i in array{
-if numDict.keys.contains(i){
-newArray.append(i)
-}
-}
+    for i in array{
+        if numDict.keys.contains(i){
+        newArray.append(i)
+        }
+    }
 }
 
 for (key,_) in numDict{
 
-if arr1.contains(key)&&arr2.contains(key)&&arr3.contains(key)&&arr4.contains(key){
-
-newArray.append(key)
-
-}
+    if arr1.contains(key)&&arr2.contains(key)&&arr3.contains(key)&&arr4.contains(key){
+        newArray.append(key)
+    }
 
 }
 
@@ -784,9 +776,6 @@ establishment of an absolute Tyranny over these States. To prove this, let Facts
 candid world.
 """
 
-//mysentence.components(separatedBy: .punctuationCharacters).joined().components(separatedBy: " ")
-
-
 var array = declarationOfIndependence.components(separatedBy: CharacterSet.punctuationCharacters).joined().components(separatedBy: .whitespacesAndNewlines)
 
 //print(array)
@@ -795,11 +784,11 @@ var dictionary: [String:Int] = [:]
 
 for word in array{
 
-if dictionary.keys.contains(word){
-dictionary.updateValue(dictionary[word]! + 1, forKey: word)
-}else{
-dictionary[word] = 1
-}
+    if dictionary.keys.contains(word){
+        dictionary.updateValue(dictionary[word]! + 1, forKey: word)
+    }else{
+    dictionary[word] = 1
+    }
 
 }
 
@@ -809,12 +798,10 @@ var highestFrequency = 0
 var wordAppearsMost = String()
 
 for (key, value) in dictionary where key.count > 5{
-
-if (value > highestFrequency){
-highestFrequency = value
-wordAppearsMost = key
-}
-
+    if (value > highestFrequency){
+        highestFrequency = value
+        wordAppearsMost = key
+    }
 }
 
 print("'\(wordAppearsMost)' is the word (more than 5 characters) that appears the most: \(highestFrequency) times")
